@@ -16,14 +16,12 @@ const FormSchema = z.object({
 const CreateInvoice = FormSchema.omit({ id: true, date: true});
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
-export async function deleteInvoice(id: string) {
+export async function deleteInvoice(id: string): Promise<void> {
     try{
     await sql`DELETE FROM invoices WHERE id = ${id}`;
     revalidatePath('/dashboard/invoices');
     }catch(error){
-        return {
-            message: 'Database Error: Failed to Delete Invoice',
-        };
+        console.error('Database Error: Failed to Delete Invoice');
     }
 }
 

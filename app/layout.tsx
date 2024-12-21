@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 
